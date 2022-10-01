@@ -26,9 +26,7 @@
                 </h4>
             </div>
             <div class="col-6 col-md-4 mb-2">
-                <form action="#" method="post">
-                    <input type="text" name="search" class="form-control shadow-lg " placeholder="Search Item Or Search User">
-                </form>
+                    <input type="text" name="search" class="form-control shadow-lg searchBox" placeholder="Search Item Or Search User">
             </div>
             <div class="col-6 col-md-4 mb-2 d-flex justify-content-center">
                 <a href="{{route('login')}}" class="btn btn-outline-dark mx-3 d-none d-md-block">Log-in</a>
@@ -70,7 +68,7 @@
 
             <div class="col-6 mb-2">
             <!-- <form action="#" method="post"> -->
-                <input type="text" name="search" id="searchBox" class="form-control shadow-lg " placeholder="Search Items">
+                <input type="text" name="search" class="form-control shadow-lg searchBox" placeholder="Search Items">
             <!-- </form> -->
         </div>
         <div class="col-6 mb-2 d-flex justify-content-center">
@@ -102,7 +100,7 @@
             $('#example').DataTable();
         });
         $(document).ready(function () {
-            $('#searchBox').on('keyup',function(){
+            $('.searchBox').on('keyup',function(){
                 var value = $(this).val();
                 $.ajax({
                     type: "get",
