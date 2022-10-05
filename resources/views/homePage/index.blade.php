@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row py-2">
             <div class="col-12 mb-3">
-                <div style="border-left:10px solid black";>
+                <div style="border-left:10px solid black;display:flex;justify-content:space-between;" id="cate">
                     <h4 class="mb-0 fw-bolder">
                         အမျိုးအစားများ <i class="fa-solid fa-rectangle-list mb-0"></i>
                     </h4>

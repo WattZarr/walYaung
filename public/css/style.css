@@ -3,11 +3,28 @@
 :root{
     --grey : #e0e0e0;
     --white : #ffffff;
+    --soft-dark:#121212;
+    --dark : #000000;
 }
 
 .rc{
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #ffffff;
+}
+
+.soft-dark{
+    background-color: var(--soft-dark);
+}
+
+.dark{
+    background-color: var(--dark) !important;
+    color:var(--white);
+}
+
+.border-white{
+    border-left:10px solid var(--white) !important;
+    display:flex;
+    justify-content:space-between;
 }
 
 .container{
@@ -18,6 +35,12 @@
 .cg-card{
     background-color: #ffffff;
     transition: 0.5s;
+}
+
+
+.cg-card-dark{
+    background-color: var(--soft-dark) !important;
+    color:var(--white);
 }
 
 .cg-card:hover{

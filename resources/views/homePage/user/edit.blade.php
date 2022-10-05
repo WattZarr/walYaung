@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center py-3">
             <div class="col-12 col-md-8">
-                <div class="card shadow-lg">
+                <div class="card shadow-lg pcard">
                     <div class="card-body">
                     @if(Session::has('edit'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">

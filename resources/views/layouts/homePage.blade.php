@@ -26,7 +26,7 @@
                 </h4>
             </div>
             <div class="col-6 col-md-4 mb-2">
-                    <input type="text" name="search" class="form-control shadow-lg searchBox" placeholder="Search Item Or Search User">
+                    <input type="text" name="search" class="form-control shadow-lg searchBox" placeholder="Search Item">
             </div>
             <div class="col-6 col-md-4 mb-2 d-flex justify-content-center">
                 <a href="{{route('login')}}" class="btn btn-outline-dark mx-3 d-none d-md-block">Log-in</a>
@@ -81,7 +81,14 @@
 
         @endif
 
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <div>
+                <button class="btn btn-sm btn-outline-dark" onclick="dark()" id="dark-button"><i id="dm" class="fa-solid fa-moon"></i></button>
+                </div>
             </div>
+        </div>
     </div>
 
 
@@ -96,6 +103,7 @@
         $.ajaxSetup({header:{'csrfToken' : '{{csrf_token()}}' }});
     </script>
     <script>
+
         $(document).ready(function () {
             $('#example').DataTable();
         });
@@ -112,7 +120,56 @@
                 });
             })
         });
+
+        let isDark = localStorage.getItem("isDark");
+        if(isDark == 1){
+            dark();
+            localStorage.setItem("isDark",1);
+        }
+
+
+        function dark(){
+            $("body").toggleClass("dark");
+            $(".container").toggleClass("dark");
+            $(".navbar").toggleClass("navbar-dark");
+            $(".navbar-brand").toggleClass("text-light");
+            $(".nav-link").toggleClass("text-light");
+            if($("#dark-button").hasClass("btn-outline-dark")){
+                $(".btn-outline-dark").addClass("btn-outline-light").removeClass("btn-outline-dark");
+            }
+            else{
+                $(".btn-outline-light").addClass("btn-outline-dark").removeClass("btn-outline-light");
+            }
+            if($("#dm").hasClass("fa-moon")){
+                $("#dm").addClass("fa-sun").removeClass("fa-moon");
+            }
+            else{
+                $("#dm").addClass("fa-moon").removeClass("fa-sun");
+            }
+            $("#cate").toggleClass("border-white");
+            $(".cg-card").toggleClass("cg-card-dark");
+            $('.searchBox').toggleClass("cg-card-dark");
+            $('.navbar-toggler').toggleClass("text-light");
+            $('.pcard').toggleClass("soft-dark");
+            if(localStorage.getItem("isDark") == 1){
+                $('.dataTables_length').removeClass("text-light");
+                $('.dataTables_filter').removeClass("text-light");
+                $("select").removeClass("text-light");
+                $("input[type='search']").removeClass("text-light");
+                localStorage.setItem("isDark",0);
+            }
+            else{
+                $('.dataTables_length').addClass("text-light");
+                $('.dataTables_filter').addClass("text-light");
+                $("select").addClass("text-light");
+                $("input[type='search']").addClass("text-light");
+                localStorage.setItem("isDark",1);
+            }
+
+
+        }
+
+
     </script>
 </body>
 </html>
-
